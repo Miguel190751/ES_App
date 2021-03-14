@@ -1,8 +1,8 @@
 # ES_App
 
 ## 使用するには、以下操作が必要
-### 1.Config/Config.php を 作成
-### 2.Config.php内に以下の設定を記述する。
+### 1.src/config.php を 作成
+### 2.config.php内に以下の設定を記述する。
 
 ```bash
 <?PHP
