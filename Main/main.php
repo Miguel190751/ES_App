@@ -23,7 +23,7 @@ if(!($_SESSION['login_name'])){
     <h1>ようこそ！ <?PHP echo $_SESSION['login_name']; ?> さん</h1>
 
     <a href="Ja-En_Quiz.php">英->日モード</a>
-    <a href="SentenceManagement.php">例文登録</a>
+    <a href="management.php">例文登録</a>
 </body>
     
 </html>
