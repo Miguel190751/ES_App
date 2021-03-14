@@ -1,8 +1,9 @@
 # ES_App
 
 ## ES_Appは例文を使った語学学習WEBアプリです。
+https://tb-220550.tech-base.net/
 
-## 使用するには、以下操作が必要
+## ローカル環境で使用するには、以下操作が必要
 ### 1.src/config.php を 作成
 ### 2.config.php内に以下の設定を記述する。
 
