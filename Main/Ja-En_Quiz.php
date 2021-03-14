@@ -1,6 +1,6 @@
 <?php
 
-require_once('../Config/Config.php');
+require_once('../src/config.php');
 
 session_start();
 

@@ -1,7 +1,7 @@
 <?php
 //PHP 8.0.1
 
-require_once('../Config/Config.php');
+require_once('../src/config.php');
 require_once("simple_html_dom.php");
 
 session_start();
