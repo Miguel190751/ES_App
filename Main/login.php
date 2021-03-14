@@ -85,7 +85,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     <a href="../Register/Preregister.php"><p>新規会員登録</p></a>
     
-    <?PHP
+<?PHP
+ /*
 
     //デバッグ表示
     echo "DEB:デバッグ表示 preuser"."<br>";
@@ -114,7 +115,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
        echo $row['email'].' ';
        echo $row['login_date'].'<br>';
     }
-
+ */
 ?>
 
 </body>
