@@ -2,7 +2,7 @@
 require 'src/Exception.php';
 require 'src/PHPMailer.php';
 require 'src/SMTP.php';
-require 'setting.php';
+require '../../Config/Config.php';
 
 session_start();
 
