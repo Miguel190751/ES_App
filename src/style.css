@@ -5,6 +5,16 @@
     text-align: center;
 }
 
+
+/*main.php*/
+#contents{
+    text-align:center;
+}
+
+#contents img{
+    height:150px;
+}
+
 #hint {
     /*background-color:green;*/
     width: 500px;
