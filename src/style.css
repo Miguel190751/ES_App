@@ -1,11 +1,3 @@
-#main {
-    background-color: greenyellow;
-    width: 100%;
-    height: 600px;
-    text-align: center;
-}
-
-
 /*main.php*/
 #contents_main{
     text-align:center;
@@ -19,11 +11,20 @@
     float:left;
 }
 
+/*Ja-En_Quiz.php*/
+
 #hint {
-    /*background-color:green;*/
     width: 500px;
     margin: 0 auto;
 }
+
+#main {
+    width: 100%;
+    height: 600px;
+    text-align: center;
+}
+
+/*management.php*/
 
 table{
     width: 100%;
@@ -37,8 +38,4 @@ table th {
   
 table td {
     padding: 3px 10px;
-}
-
-#management_parent{
-    padding-left:10px;
 }

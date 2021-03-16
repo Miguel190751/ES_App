@@ -111,31 +111,52 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../src/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <title>例文登録</title>
 </head>
 
 <body>
 
-    <div id="management_parent">
+    <div class="container">
+    
+    <div class="row mt-5">
 
+    <div id="register_management" class="col-lg-6 mb-3">
     <h1>例文登録</h1>
     <form action="" method="POST">
-    英語例文　：<input type="text" name="en_contents"><br>
-    日本語例文：<input type="text" name="ja_contents"><br><br>
+    <table>
+    <table border="0">
+        <tr>
+            <td width=300px>
+            英語例文　：<input type="text" name="en_contents"><br>
+            日本語例文：<input type="text" name="ja_contents"><br><br>
+            </td>
 
-    英語キーワード　　：1. <input type="text" name="en_keyword[]"> 2. <input type="text" name="en_keyword[]"> 3. <input type="text" name="en_keyword[]"><br>
-    日本語キーワード　：1. <input type="text" name="ja_keyword[]"> 2. <input type="text" name="ja_keyword[]"> 3. <input type="text" name="ja_keyword[]"><br><br>
+            <td>
+            <input type="submit" name="submit" value="登録">
+            </td>
+        </tr>
 
-    <input type="submit" name="submit" value="登録">
+        <tr>
+            <td colspan="2">
+            英語キーワード　　：1. <input type="text" name="en_keyword[]" size="5"> 2. <input type="text" name="en_keyword[]" size="5"> 3. <input type="text" name="en_keyword[]" size="5"><br>
+            日本語キーワード　：1. <input type="text" name="ja_keyword[]" size="5"> 2. <input type="text" name="ja_keyword[]" size="5"> 3. <input type="text" name="ja_keyword[]" size="5"><br>
+            </td>
+        </tr>
+
+    </table>
     </form>
+    </div>
 
-    <br>
-
-    <h1>検索</h1>
+    <div id="search_management" class="col-lg-6">
+    <h1>単語検索(メンテナンス中)</h1>
     <form action="" method="POST">
     <input type="text" name="search_word">
     <input type="submit" name="search" value="検索">
     </form>
+    </div>
+
+    </div>
 
     <hr>
 
@@ -190,6 +211,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     <br>
     <a href="main.php">メインページに戻る</a><br>
+
     </div>
 </body>
     
