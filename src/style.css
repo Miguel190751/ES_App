@@ -7,12 +7,16 @@
 
 
 /*main.php*/
-#contents{
+#contents_main{
     text-align:center;
 }
 
-#contents img{
+#contents_main img{
     height:150px;
+}
+
+#header_main h1{
+    float:left;
 }
 
 #hint {

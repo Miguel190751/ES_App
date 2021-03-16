@@ -9,6 +9,14 @@ if(!($_SESSION['login_name'])){
     header('Location: login.php');
 }
 
+//ログアウト機能
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    if(!(empty($_POST['logout']))){
+        $_SESSION['login_name'] = '';
+        header('Location: login.php');
+    }
+}
+
 ?>
 
 <!DOCTYPE HTML>
@@ -24,12 +32,19 @@ if(!($_SESSION['login_name'])){
 <body>
 
     <div class="container">
-    <h1 class="mt-5 mb-5">ようこそ！ <?PHP echo $_SESSION['login_name']; ?> さん</h1>
 
-    <div id="contents"> 
+    <div id="header_main">
+    <h1 class="mt-5 col-11">ようこそ！ <?PHP echo $_SESSION['login_name']; ?> さん</h1>
+    <form action="" method="POST">
+    <input type="submit" name="logout" value="ログアウト" class="mt-5 mb-5 col-1">
+    </form>
+    </div>
+
+    <div id="contents_main"> 
     <a href="Ja-En_Quiz.php"><img src="../src/pic/pic_JE.png"></a><br>
     <a href="management.php"><img src="../src/pic/pic_register.png"></a><br>
     </div>
+
 
     </div>
 
