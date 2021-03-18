@@ -162,20 +162,21 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     <h1>登録リスト</h1>
 
+
+    <div class="table-responsive" id="register_table">
     <form action="" method="POST">
 
-    <table>
-    <table border='1'>
+    <table class="table table-bordered table-hover">
 
-    <tr>
-        <th>英語文</th>
-        <th>日本語文</th>
-        <th>正解数</th>
-        <th>正解時刻</th>
-        <th> <input type="submit" name="delete" value="削除"> </th>
+    <tr class="table-info align-middle" >
+        <th width="300px">英語文</th>
+        <th width="300px">日本語文</th>
+        <th width="60px"> <input type="submit" name="delete" value="削除"> </th>
         <th colspan="2" width="200px"> Keyword1 </th>
         <th colspan="2" width="200px"> Keyword2 </th>
         <th colspan="2" width="200px"> Keyword3 </th>
+        <th width="70px">正解数</th>
+        <th width="170px">正解時刻</th>
     </tr>
 
     <?PHP
@@ -191,15 +192,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <tr>
         <td> <?php echo $row['ensentence']; ?></td>
         <td> <?php echo $row['jasentence']; ?></td>
+        <td align ="center"> <input type="checkbox" name="selected_id[]" value="<?php echo $row['sentence_id']; ?>"></td>
+        <td> <?php echo $row['enkeyword1']; ?> </td>
+        <td> <?php echo $row['jakeyword1']; ?> </td>
+        <td> <?php echo $row['enkeyword2']; ?> </td>
+        <td> <?php echo $row['jakeyword2']; ?> </td>
+        <td> <?php echo $row['enkeyword3']; ?> </td>
+        <td> <?php echo $row['jakeyword3']; ?> </td>
         <td align ="center"> <?php echo $row['correct']; ?></td>
         <td> <?php echo $row['correct_date']; ?></td>
-        <td align ="center"> <input type="checkbox" name="selected_id[]" value="<?php echo $row['sentence_id']; ?>"></td>
-        <td width="100px"> <?php echo $row['enkeyword1']; ?> </td>
-        <td width="100px"> <?php echo $row['jakeyword1']; ?> </td>
-        <td width="100px"> <?php echo $row['enkeyword2']; ?> </td>
-        <td width="100px"> <?php echo $row['jakeyword2']; ?> </td>
-        <td width="100px"> <?php echo $row['enkeyword3']; ?> </td>
-        <td width="100px"> <?php echo $row['jakeyword3']; ?> </td>
     </tr>
 
     <?php
@@ -208,11 +209,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     </table>
 
     </form>
+    </div>
 
     <br>
     <a href="main.php">メインページに戻る</a><br>
 
-    </div>
+
 </body>
     
 </html>

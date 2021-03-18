@@ -72,18 +72,30 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <head>
     <meta charset="utf-8">
     <title>ログイン</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 
 <body>
+    <div class="container mt-5">
     <h1>ログイン</h1>
-    <!--確認を押したとき、再確認ウインドウが出るように設定したい-->
     <form action="" method="POST">
-        Email：<input type="email" name="login_email"><br>
-        パスワード<input type="password" name="login_password">
+        <label>Email<br>
+        <input type="email" name="login_email" size="30">
+        </label>
+
+        <br><br>
+
+        <label>パスワード<br>
+        <input type="password" name="login_password" size="30">
+        </label>
+
         <input type="submit" name="submit" value="確認">
     </form>
 
+    <br>
+
     <a href="../Register/Preregister.php"><p>新規会員登録</p></a>
+    </div>
     
 <?PHP
  /*
