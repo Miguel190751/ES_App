@@ -26,16 +26,6 @@
 
 /*management.php*/
 
-table{
-    width: 100%;
-    border-collapse: collapse;
-}
-
-table th {
-    padding: 10px;
-    background-color:azure;
-}
-  
-table td {
-    padding: 3px 10px;
+#register_table table{
+    table-layout:fixed;
 }
