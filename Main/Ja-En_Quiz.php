@@ -24,7 +24,7 @@ if(!($_SESSION['login_name'])){
 }
 
 //数問(5問)解いたら、メインページへ遷移(*リザルト画面表示できると良)
-if($_SESSION['num'] > 10){
+if($_SESSION['num'] > 5){
     $_SESSION['num'] = 1;
     header('Location: main.php');
 }
@@ -117,26 +117,27 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../src/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <title>英 -> 日</title>
 </head>
 
 <body>
-
-    <div id="main">
+ 
+    <div id="main" class="container mt-3">
 
     <h1> <?php echo '第'.$_SESSION['num'].'問' ?></h1>
 
     <form action="" method="post">
-    <input type="submit" name="question" value="問題を表示">
+    <input class="quizbtn btn btn-primary mb-2" type="submit" name="question" value="問題を表示">
     <div id="question"><?php echo $question; ?></div>
     </form>
 
     <br><br> 
 
-    <button id="hintbtn">ヒント</button><br>
+    <button id="hintbtn" class="quizbtn btn btn-primary mb-2">ヒント</button><br>
     <div id="hint">
     <table>
-        <table border='1'>
+        <table border='1' align="center">
         <tr>
             <td><?php echo $en_hint1 ?></td>
             <td><?php echo $ja_hint1 ?></td>
@@ -152,17 +153,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     </table>
     </div>
 
-    <br><br><br>
+    <br><br>
 
 
-    <button id="answerbtn">解答を表示</button>
+    <button id="answerbtn" class="quizbtn btn btn-primary mb-2">解答を表示</button>
     <div id="answer"><?php echo $answer; ?></div>
 
-    <br><br><br>
+    <br><br>
 
     <form action="" method="post">
-        <input type="submit" name="correct" value="正解！">
-        <input type="submit" name="incorrect" value="不正解！">
+        <input class="quizbtn btn btn-success" type="submit" name="correct" value="正解！">
+        <input class="quizbtn btn btn-success" type="submit" name="incorrect" value="不正解！">
         <input type="hidden" name="id" value= "<?PHP echo $selected_id; ?>">
     </form>
     <br>
