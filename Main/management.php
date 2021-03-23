@@ -1,5 +1,5 @@
 <?php
-//PHP 8.0.1
+
 
 require_once('../src/config.php');
 require_once("simple_html_dom.php");
@@ -80,15 +80,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $sample1 = $html->find(".ej");
         $sample2 = $html->find(".je");
 
-        foreach($sample1 as $row){
-            echo $row; echo "<br>";
-        }
-        
-        foreach($sample2 as $row){
-            echo $row; echo "<br>";
-        }
-
-        $html->clear();
     }
 
 
@@ -149,11 +140,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     </div>
 
     <div id="search_management" class="col-lg-6">
-    <h1>単語検索(メンテナンス中)</h1>
+    <h1>単語検索</h1>
     <form action="" method="POST">
     <input type="text" name="search_word">
     <input type="submit" name="search" value="検索">
     </form>
+
+    <b>
+    <?php if(!empty($sample1[0])){ echo $sample1[0]; } ?>
+    <?php if(!empty($sample2[0])){ echo $sample2[0]; $html->clear(); } ?>
+    </b>
+    
+
     </div>
 
     </div>

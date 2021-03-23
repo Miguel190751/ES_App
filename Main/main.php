@@ -41,7 +41,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     </div>
 
     <div id="contents_main"> 
-    <a href="Ja-En_Quiz.php"><img src="../src/pic/pic_JE.png"></a><br>
+    <a href="Ja-En_Quiz.php"><img src="../src/pic/pic_EJ.png"></a><br>
     <a href="management.php"><img src="../src/pic/pic_register.png"></a><br>
     </div>
 
