@@ -1,7 +1,7 @@
 # ES_App
 
 ## ES_Appは例文を使った語学学習WEBアプリです。
-http://107.20.27.52/ES_App/Main/main.php
+http://107.20.27.52/ES_App/Main/login.php
 
 ## ローカル環境で使用するには、以下操作が必要
 ### 1.src/config.php を 作成
