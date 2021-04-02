@@ -119,7 +119,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     <form action="" method="post">
       <input class="quizbtn btn btn-success" id="correct" type="submit" name="correct" value="正解！">
-      <input class="quizbtn btn btn-success" type="submit" name="incorrect" value="不正解！">
+      <input class="quizbtn btn btn-success" id="incorrect" type="submit" name="incorrect" value="不正解！">
       <input type="hidden" name="selected_id" id="selected_id">
     </form>
 
@@ -130,6 +130,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
   </div>
 
   <script>
+
+    document.getElementById("correct").setAttribute("disabled", true);
+    document.getElementById("incorrect").setAttribute("disabled", true);
+    document.getElementById("answerbtn").setAttribute("disabled", true);
+    document.getElementById("hintbtn").setAttribute("disabled", true);
+
     let request = new XMLHttpRequest();
 
     request.onreadystatechange = function(){
@@ -155,6 +161,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     request.open('POST', 'http://localhost/Works/ES_App/src/select_question.php');
     request.send(null);
     document.getElementById('questionbtn').style.display = 'none';
+    document.getElementById("correct").disabled = false;
+    document.getElementById("incorrect").disabled = false;
+    document.getElementById("answerbtn").disabled = false;
+    document.getElementById("hintbtn").disabled = false;
     }
 
     //解答を表示が押された場合に非表示から表示に変更する。
