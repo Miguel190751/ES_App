@@ -143,7 +143,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         if(request.status == 200){
           //JSONファイルを受取
           let responseJson = JSON.parse(request.response);
-          //console.log(responseJson);
           document.getElementById('question').textContent = responseJson.ensentence;
           document.getElementById('answer').textContent = responseJson.jasentence;
           document.getElementById('en_hint1').textContent = responseJson.enkeyword1;
