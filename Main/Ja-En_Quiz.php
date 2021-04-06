@@ -15,7 +15,7 @@ if(!($_SESSION['login_name'])){
 //数問(5問)解いたら、メインページへ遷移(*リザルト画面表示できると良)
 if($_SESSION['num'] > 5){
   $_SESSION['num'] = 1;
-  header('Location: main.php');
+  header('Location: result.php');
 }
 
 //正解・不正解ボタンが押された場合の処理。
@@ -24,44 +24,92 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
   //正解していれば正解数に+1、外れればそのまま。+ 次の問題に遷移する(ページ更新)処理
   if(!empty($_POST['correct']) && !empty($_POST['selected_id'])){
 
-      //現在の出題数に+1する処理
-      $_SESSION['num'] += 1;
+    //result.phpで結果表示する際に、使うデータをセッションで保存。
+    switch ($_SESSION['num']) {
+      case 1:
+        $_SESSION['selected_id1'] = $_POST['selected_id'];
+        $_SESSION['result1'] = "t";
+        break;
+      case 2:
+        $_SESSION['selected_id2'] = $_POST['selected_id'];
+        $_SESSION['result2'] = "t";
+        break;
+      case 3:
+        $_SESSION['selected_id3'] = $_POST['selected_id'];
+        $_SESSION['result3'] = "t";
+        break;
+      case 4:
+        $_SESSION['selected_id4'] = $_POST['selected_id'];
+        $_SESSION['result4'] = "t";
+        break;
+      case 5:
+        $_SESSION['selected_id5'] = $_POST['selected_id'];
+        $_SESSION['result5'] = "t";
+        break;    
+    }
 
-      $sentence_id = $_POST['selected_id'];
-      $user_id =  $_SESSION['login_id'];
+    //現在の出題数に+1する処理
+    $_SESSION['num'] += 1;
 
-      //正解数(correct)を取得する処理。
-      $sql = 'SELECT correct FROM exsentence WHERE sentence_id=:sentence_id AND user_id=:user_id';
-      $stmt = $pdo->prepare($sql);
-      $stmt->bindParam(':sentence_id',$sentence_id,PDO::PARAM_INT);
-      $stmt->bindParam(':user_id',$user_id,PDO::PARAM_INT);
-      $stmt->execute();
-      $results = $stmt->fetchAll();
-      $correct = ( (int) $results[0]['correct'] ) + 1;
+    $sentence_id = $_POST['selected_id'];
+    $user_id =  $_SESSION['login_id'];
 
-      //正解数/正解時刻を更新する。
-      date_default_timezone_set('Asia/Tokyo'); //php.iniの内容の変更と等しい。
-      $correct_date = date('YmdHis');
+    //正解数(correct)を取得する処理。
+    $sql = 'SELECT correct FROM exsentence WHERE sentence_id=:sentence_id AND user_id=:user_id';
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':sentence_id',$sentence_id,PDO::PARAM_INT);
+    $stmt->bindParam(':user_id',$user_id,PDO::PARAM_INT);
+    $stmt->execute();
+    $results = $stmt->fetchAll();
+    $correct = ( (int) $results[0]['correct'] ) + 1;
 
-      $sql = 'UPDATE exsentence SET correct=:correct ,correct_date=:correct_date WHERE sentence_id=:sentence_id AND user_id=:user_id';
-      $stmt = $pdo->prepare($sql);
-      $stmt->bindParam(':correct',$correct,PDO::PARAM_INT);
-      $stmt->bindParam(':correct_date',$correct_date,PDO::PARAM_INT);
-      $stmt->bindParam(':sentence_id',$sentence_id,PDO::PARAM_INT);
-      $stmt->bindParam(':user_id',$user_id,PDO::PARAM_INT);
-      $stmt->execute();
+    //正解数/正解時刻を更新する。
+    date_default_timezone_set('Asia/Tokyo'); //php.iniの内容の変更と等しい。
+    $correct_date = date('YmdHis');
 
-      //ページを更新する。(新しい問題に切り替え)
-      header("Location: " . $_SERVER['PHP_SELF']);
+    $sql = 'UPDATE exsentence SET correct=:correct ,correct_date=:correct_date WHERE sentence_id=:sentence_id AND user_id=:user_id';
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':correct',$correct,PDO::PARAM_INT);
+    $stmt->bindParam(':correct_date',$correct_date,PDO::PARAM_INT);
+    $stmt->bindParam(':sentence_id',$sentence_id,PDO::PARAM_INT);
+    $stmt->bindParam(':user_id',$user_id,PDO::PARAM_INT);
+    $stmt->execute();
+
+    //ページを更新する。(新しい問題に切り替え)
+    header("Location: " . $_SERVER['PHP_SELF']);
   }
 
   if(!empty($_POST['incorrect']) && !empty($_POST['selected_id'])){
 
-      //現在の出題数に+1する処理
-      $_SESSION['num'] += 1;
+    //result.phpで結果表示する際に、使うデータをセッションで保存。
+    switch ($_SESSION['num']) {
+      case 1:
+        $_SESSION['selected_id1'] = $_POST['selected_id'];
+        $_SESSION['result1'] = "f";
+        break;
+      case 2:
+        $_SESSION['selected_id2'] = $_POST['selected_id'];
+        $_SESSION['result2'] = "f";
+        break;
+      case 3:
+        $_SESSION['selected_id3'] = $_POST['selected_id'];
+        $_SESSION['result3'] = "f";
+        break;
+      case 4:
+        $_SESSION['selected_id4'] = $_POST['selected_id'];
+        $_SESSION['result4'] = "f";
+        break;
+      case 5:
+        $_SESSION['selected_id5'] = $_POST['selected_id'];
+        $_SESSION['result5'] = "f";
+        break;    
+    }
 
-      //ページを更新する。(新しい問題に切り替え)
-      header("Location: " . $_SERVER['PHP_SELF']);
+    //現在の出題数に+1する処理
+    $_SESSION['num'] += 1;
+
+    //ページを更新する。(新しい問題に切り替え)
+    header("Location: " . $_SERVER['PHP_SELF']);
   }    
 }
 
