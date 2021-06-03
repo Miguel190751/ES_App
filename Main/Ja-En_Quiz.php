@@ -159,7 +159,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     <br><br>
 
-
     <button id="answerbtn" class="quizbtn btn btn-primary mb-2">解答を表示</button>
     <div id="answer"></div>
 
@@ -205,7 +204,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     }
 
     function get_question(){
-    request.open('POST', 'http://localhost/Works/ES_App/src/select_question.php');
+    request.open('POST', 'http://127.0.0.1/Works/ES_App/src/select_question.php');
     request.send(null);
     document.getElementById('questionbtn').style.display = 'none';
     document.getElementById("correct").disabled = false;
